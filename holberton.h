@@ -2,6 +2,6 @@
 #define HOLBERTON_H
 
 int _printf(const char *format, ...);
-void switch_fun(*(format  + i));
+int _strlen(char *s);
 
 #endif
