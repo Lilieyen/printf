@@ -13,11 +13,18 @@ Formatage of the output
 .TP
 \\n
 new line
+.br
+\\b
+tab break
 .SH FORMAT SPECIFIER
 %d - prints integer
+.br
 %c - prints character
+.br
 %s - prints string
+.br
 %i - prints unsigned integer
+.br
 .SH EXAMPLES
 To write some text to the standard output, use the
 .BR _printf (3)
