@@ -1,2 +1,3 @@
 # printf
-In this projec, we will impliment our own printf function.
+In this project, we will impliment our own printf function.
+Printf is a C variadic library function that prints formatted output accordig to format specifiers.
