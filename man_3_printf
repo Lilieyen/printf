@@ -1,8 +1,37 @@
 .TH _PRINTF 3
 .SH NAME
-_printf \- 
+_printf \- to display on the standard output 
 .SH SYNOPSIS
-
+.B _printf
+\fIFORMAT\fR
+[\fIARGUMENT\fR] ...
 .SH DESCRIPTION
-
-prints information passed as arguments
+.B _printf
+prints information passed as argument
+.TP
+Formatage of the output
+.TP
+\\n
+new line
+.SH FORMAT SPECIFIER
+%d - prints integer
+%c - prints character
+%s - prints string
+%i - prints unsigned integer
+.SH EXAMPLES
+To write some text to the standard output, use the
+.BR _printf (3)
+command:
+.PP
+.nf
+.RS
+_printf ("this is a %s format\n", usual string)
+.RE
+.fi
+.PP
+.SH OPTIONS
+printf does not take any options
+.SH SEE ALSO
+printf, fprintf
+.SH AUTHOR
+Mrima Mbanga and Lilian Mokaya
