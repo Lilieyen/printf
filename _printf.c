@@ -23,6 +23,50 @@ int _strlen(char *s)
 }
 
 /**
+ *
+ */
+int _number(int d)
+{
+	int number;
+	int lastdigit = d % 10;
+	int one_dig;
+	int mult = 1;
+	int i = 1;
+
+	d = d / 10;
+	number = d;
+
+	if (lastdigit < 0)
+	{
+		_putchar('-');
+		number = -number;
+		d = -d;
+		lastdigit = -lastdigit;
+		i++;
+	}
+	if (number > 0)
+	{
+		while (number / 10 != 0)
+		{
+			mult = mult * 10;
+			number = number / 10;
+		}
+		number = d;
+		while (mult > 0)
+		{
+			one_dig = number / mult;
+			_putchar(one_dig + '0');
+			number = number - (one_dig *mult);
+			mult = mult / 10;
+			i++;
+		}
+	}
+	_putchar(lastdigit + '0');
+
+	return (i);
+}
+
+/**
  *_printf- Prints anything to output
  *@format:Parameter 1
  *@...:Variable number of arguements
@@ -37,6 +81,7 @@ int _printf(const char *format, ...)
         char *string_arg;
         va_list arguments;
         int j;
+	int d;
 
         va_start(arguments, format);
         while (*(format + i))
@@ -74,7 +119,14 @@ int _printf(const char *format, ...)
 					return (-1);
 				length++;
 				break;
-
+			case 'd':
+                                d = va_arg(arguments, int);
+                                length += _number(d);
+				break;
+			case 'i':
+				d = va_arg(arguments, int);
+                                length += _number(d);
+				break;
                         }
 
                 }
