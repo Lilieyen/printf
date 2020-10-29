@@ -84,6 +84,8 @@ int _printf(const char *format, ...)
 	int d;
 
         va_start(arguments, format);
+	if (format == NULL)
+		return (-1);
         while (*(format + i))
         {
                 if ((*(format + i)) != '%')
@@ -94,6 +96,8 @@ int _printf(const char *format, ...)
                 }
                 else
                 {
+			if (!(*format + i + 1))
+				return (-1);
                         i += 1;
                         switch (*(format + i))
                         {
@@ -107,6 +111,8 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				string_arg = va_arg(arguments, char *);
+				if (string_arg == NULL)
+					string_arg = "(null)";
 
 				j = write(1, string_arg, _strlen(string_arg));
 				if (j == -1)
